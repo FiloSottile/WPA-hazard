@@ -13,7 +13,7 @@ with file('config.txt', 'a') as config:
     for source in sys.argv[1:]:
         with file(source) as f:
             for line in f.readlines():
-                if not ';' in line: 
+                if not ';' in line or line.startswith('#') or line.startswith('//'):
                     print 'Ignored:', line.strip()
                     continue # f.write(line)
                 l = line.split(';')[0].strip('"')

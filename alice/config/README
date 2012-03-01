@@ -1,0 +1,9 @@
+// Put in that folder the magic numbers following the syntax
+// "123,69102,13,96017051,001D8B";
+// in text files.
+// All files get merged in a config.txt with "make config"
+
+// Metti in questa cartella i magic number seguendo la sintassi
+// "123,69102,13,96017051,001D8B";
+// in file di testo.
+// Tutti i file vengono uniti in un config.txt con "make config"
