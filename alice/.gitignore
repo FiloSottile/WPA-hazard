@@ -1,0 +1,12 @@
+alice
+alice.static
+alice.exe
+alice.o
+alice.w.o
+sha2.o
+sha2.w.o
+ialice.o
+functions.w.o
+functions.o
+config.txt
+config/*

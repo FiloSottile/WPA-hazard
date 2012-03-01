@@ -1,0 +1,11 @@
+fastweb.o
+lookup3.o
+md5.o
+fastweb.w.o
+lookup3.w.o
+md5.w.o
+functions.o
+functions.w.o
+fastweb
+fastweb.static
+fastweb.exe
