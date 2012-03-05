@@ -1,14 +1,11 @@
-extern "C" {
-    #include "lookup3.h"
-}
+#include "lookup3.h"
 #include "md5.h"
-#include "functions.hpp"
+#include "functions.h"
 
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
-using namespace std;
 
 void telsey(unsigned char* key, const char* mac) {
     

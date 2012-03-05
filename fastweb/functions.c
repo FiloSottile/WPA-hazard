@@ -1,8 +1,6 @@
 #include <string.h>
 #include <stdlib.h>
 
-using namespace std;
-
 void ToUpper(char* str) {
     char diff = (int)'a' - (int)'A';
     char buffer[strlen(str)+1];
@@ -23,14 +21,14 @@ void HexSequenceToChar(const char* hexpairs, unsigned char* chars, unsigned int 
     }
 }
 
-bool IsPirelli(const char* mac) {
+_Bool IsPirelli(const char* mac) {
     const char* PIRELLI_OUI = "000827-0013C8-0017C2-00193E-001CA2-001D8B-002233-00238E-002553-00A02F-080018-3039F2-38229D-6487D7-00268D";
     // 00268D è un CellTel di cui la pirelli ha comprato qualche scheda per la serie 181
     char buffer[7];
     buffer[6] = '\0';
     strncpy(buffer, mac, 6);
     ToUpper(buffer);
-    bool res = 0;
+    _Bool res = 0;
     for (short unsigned int i = 0; i<14; i++) {
         if (!strncmp(buffer, PIRELLI_OUI+(i*7), 6)) res = 1;
     }

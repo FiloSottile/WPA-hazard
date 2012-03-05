@@ -1,13 +1,9 @@
 ifdef DEBUG
-    CC = gcc -Wall -g
-    CPP = g++ -Wall -g
-    W_CC = i586-mingw32msvc-gcc -Wall -g
-    W_CPP = i586-mingw32msvc-g++ -Wall -g
+    CC = gcc -std=c99 -Wall -g
+    W_CC = i586-mingw32msvc-gcc -std=c99 -Wall -g
 else
-    CC = gcc -Wall -s -O3
-    CPP = g++ -Wall -s -O3
-    W_CC = i586-mingw32msvc-gcc -Wall -s -O3
-    W_CPP = i586-mingw32msvc-g++ -Wall -s -O3
+    CC = gcc -std=c99 -Wall -s -O3
+    W_CC = i586-mingw32msvc-gcc -std=c99 -Wall -s -O3
 endif
 
 .PHONY: all
@@ -15,28 +11,28 @@ all: fastweb fastweb.static fastweb.exe
 
 md5.o: md5.c md5.h global.h
 	$(CC) -o $@ -c $<
-lookup3.o: lookup3.c lookup3.h
+lookup3.o: lookup3.c
 	$(CC) -o $@ -c $<
-functions.o: functions.cpp
-	$(CPP) -o $@ -c $<
-fastweb.o: fastweb.cpp md5.h global.h lookup3.h functions.hpp
-	$(CPP) -o $@ -c $<
+functions.o: functions.c
+	$(CC) -o $@ -c $<
+fastweb.o: fastweb.c md5.h global.h lookup3.h functions.h
+	$(CC) -o $@ -c $<
 	
 md5.w.o: md5.c md5.h global.h
 	$(W_CC) -o $@ -c $<
-lookup3.w.o: lookup3.c lookup3.h
+lookup3.w.o: lookup3.c
 	$(W_CC) -o $@ -c $<
-fastweb.w.o: fastweb.cpp md5.h global.h lookup3.h functions.hpp
-	$(W_CPP) -o $@ -c $<
-functions.w.o: functions.cpp
-	$(W_CPP) -o $@ -c $<
+functions.w.o: functions.c
+	$(W_CC) -o $@ -c $<
+fastweb.w.o: fastweb.c md5.h global.h lookup3.h functions.h
+	$(W_CC) -o $@ -c $<
 	
 fastweb.static: fastweb.o md5.o lookup3.o functions.o
-	$(CPP) -static -o $@ $^
+	$(CC) -static -o $@ $^
 fastweb: fastweb.o md5.o lookup3.o functions.o
-	$(CPP) -o $@ $^
+	$(CC) -o $@ $^
 fastweb.exe: fastweb.w.o md5.w.o lookup3.w.o functions.w.o
-	$(W_CPP) -o $@ $^
+	$(W_CC) -o $@ $^
 	
 .PHONY: clean
 clean: part-clean
