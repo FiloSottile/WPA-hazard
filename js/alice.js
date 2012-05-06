@@ -42,7 +42,7 @@ var WPA = (function (my) {
                     pack += sn;
                     pack += my.hex2rstr(mac);
                     
-                    var sha = my.rstr_sha256(pack);
+                    var sha = my.sha256(pack);
                     
                     var wpa = '';
                     for (var x = 0; x<24; x++) {
@@ -90,4 +90,4 @@ var WPA = (function (my) {
     };
     
     return my;
-}(WPA || {}));
+})(WPA || {});

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="main.js"></script>
+    <script src="fastweb.js"></script>
+    <script src="alice.js"></script>
+    <script src="magic.js"></script>
+    <script>
+        window.onload = function () {
+            var el = document.getElementById("alice");
+            el.textContent = WPA.alice_test();
+            el = document.getElementById("fastweb");
+            el.textContent = WPA.fastweb_test();
+        }
+    </script>
+</head>
+<body>
+    <p>Alice: <span id="alice"></span></p>
+    <p>Fastweb: <span id="fastweb"></span></p>
+</body>
+</html>

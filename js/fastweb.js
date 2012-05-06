@@ -60,7 +60,7 @@ var WPA = (function (my) {
         var fissa_rstr = my.hex2rstr(fissa);
 
         var rstr = mac_rstr + fissa_rstr;
-        var md5 = my.rstr2hex(my.rstr_md5(rstr));
+        var md5 = my.rstr2hex(my.md5(rstr));
 
         var bits = '';
         var out;
@@ -124,4 +124,4 @@ var WPA = (function (my) {
     };
     
     return my;
-}(WPA || {}));
+})(WPA || {});

@@ -546,4 +546,4 @@ var WPA = (function (my) {
     };
 
     return my;
-}(WPA || {}));
+})(WPA || {});
